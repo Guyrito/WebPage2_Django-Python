@@ -1,119 +1,207 @@
 <!DOCTYPE html>
 <html lang="es-CL">
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Sitio principal Gamestore">
-    <meta name="author" content="Diego O." content="Braulio F." content="Maeva M." content="Cristian S.">
-    <meta name="keywords" content="html, style">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Sitio principal Gamestore">
+        <meta name="author" content="Diego O." content="Braulio F." content="Maeva M." content="Cristian S.">
+        <meta name="keywords" content="html, style">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!-- CSS FontAwesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    
-    <title>{% block title %}Base{% endblock %} | GameStore</title>
-    
-    <!--Styles && Fonts-->
-	{% load static %}
-	<link rel="stylesheet" href="{% static 'core/assets/css/main.css' %}" />
-	<noscript><link rel="stylesheet" href="{% static 'core/assets/css/noscript.css' %}" /></noscript>
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-</head>
-    <body class="is-preload">
-        <div id="wrapper">
-            {% block cover %}
-                <header>
-                    <div class="cover d-flex justify-content-center align-items-bottom flex-column img-fluid img-responsive" style="width: 100%;">
-                        <img src="{% static 'core/images/portada_index4.png' %}" style="height: 9cm;" alt="">
-                    </div>
-                </header>
-            {% endblock %}
-            <header id="header">
-                <div class="inner">
-                <!-- Logo -->
-                    <a href="{% url 'home' %}" class="logo">
-                        <span class="symbol"><img src="{%static 'core/images/logo.svg' %}" alt="" /></span>
-                        <span class="title">Phantom</span>
-                    </a>
-                <!-- Nav -->
-                    <nav>
-                        <ul>
-                            <li><a href="#menu">Menu</a></li>
+        <!-- CSS FontAwesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+        <!-- CSS Propios -->
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/core/assets/css/style.css' %}">
+        
+
+        
+        <title>{% block title %}Base{% endblock %} | GameStore</title>
+    </head>
+        <body style="background-color: black;">
+            <!--Portada-->
+            <div class="cover d-flex justify-content-center align-items-bottom flex-column img-fluid img-responsive" style="width: 100%;">
+                <img src="{% static 'core/images/portada_index4.png' %}" style="height: 9cm;" alt="">
+            </div>
+            <!--Portada-->
+            <header>
+            <!--nav1-->
+                <nav class="navbar navbar-expand-lg" style="background-color: black;">
+                    <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+                        <ul class="navbar-nav ml-auto text-center">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'home' %}" id="navbarlink">Inicio</a>    
+                            </li>
+                            <li class="nav-item dropdown show">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarlink" data-toggle="dropdown">Juegos</a>
+                                <div class="dropdown-menu" style="background-color: black;"> 
+                                    <a class="dropdown-item" href="{% url 'ps4' %}" id="navbarlink">Playstation  4</a>
+                                    <a class="dropdown-item" href="{% url 'steam' %}" id="navbarlink">Steam</a>
+                                </div>
+                            </li>
                         </ul>
-                    </nav>
+                    </div>
+                    <div class="mx-auto my-2 order-0 order-md-1 position-relative">
+                        <a class="mx-auto" href="#">
+                            <img src="images/menuico_3.png" class="rounded-circle" style="height: 120px; width: 120px">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                            <span class="navbar-toggler-icon"><img style="height: 1cm; width: 1cm;" src="https://www.iconsdb.com/icons/preview/orange/menu-4-xxl.png" alt=""></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
+                        <ul class="navbar-nav mr-auto text-center">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'contact' %}" id="navbarlink">Contacto</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'aboutUs' %}" id="navbarlink">Acerca de</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!--end_nav-->
+                <div class="hr" style="text-align: center; background-color: black;">
+                    <div class="date" style="color: blueviolet;">
+                        <span id="weekDay" class="weekDay"></span>, 
+                        <span id="day" class="day"></span> de
+                        <span id="month" class="month"></span> del
+                        <span id="year" class="year"></span>
+                    </div>
+                    <div class="clock" style="color: blueviolet;">
+                        <span id="hours" class="hours"></span> :
+                        <span id="minutes" class="minutes"></span> :
+                        <span id="seconds" class="seconds"></span>
+                    </div>
+                </div>
+                <br>
+                <div class="container" style="width: 15cm;">
+                    <div class="card bg-dark" style="color: whitesmoke;">
+                        <div class="card-body" id="steam-steamCard" style="text-align: center;">
+                            <h4 class="card-title">Bienvenidos a Gamestore</h4>
+                            <p class="card-text" id="text">                      
+                        </div>
+                        <div class="card-footer" id="steam-footercard" style="text-align: center;">
+                            <button class="btn" onclick="alerta()" style="background-color: darkorange; width: 10cm;">Nuestro saludo</button>
+                        </div>
+                    </div>
                 </div>
             </header>
-            <!-- NavBar -->
-            <nav id="menu">
-                <h2>Menu</h2>
-                <ul>
-                    <li><a href="{% url 'home' %}">Inicio</a></li>
-                    <li><a href="{% url 'ps4' %}">Ps4</a></li>
-                    <li><a href="{% url 'steam' %}">Steam</a></li>
-                    <li><a href="{% url 'contact' %}">Contacto</a></li>
-                    <li><a href="{% url 'aboutUs' %}">Acerca de</a></li>
-                </ul>
-            </nav>
-            <!-- NavBar -->
-
-            <!--Template tags-->
+            <!--FIN_NAVBAR-->
+            <br>
+            <!--Titulo-->
             {% block pageTitle %}{% endblock %}
+            <!--Titulo-->
+            <!--Contenido-->
             {% block content %}{% endblock %}
-            <!--Template tags-->
-
-        </div>
-    </body>
-    <!-- Footer -->
-    <div id="wrapper">
-        <footer id="footer">
-            <div class="inner">
-                <section>
-                    <h2>Get in touch</h2>
-                    <form method="post" action="#">
-                        <div class="fields">
-                            <div class="field half">
-                                <input type="text" name="name" id="name" placeholder="Name" />
-                            </div>
-                            <div class="field half">
-                                <input type="email" name="email" id="email" placeholder="Email" />
-                            </div>
-                            <div class="field">
-                                <textarea name="message" id="message" placeholder="Message"></textarea>
+            <!--Contenido-->
+            <br>
+            <ul class="list" style="text-align: center; background-color: white; margin-bottom: 0;">
+                <li class="lista">
+                    <img class="imgPago" src="{% static 'core/images/gpay.png' %}" alt="">
+                </li>
+                <li class="lista">
+                    <img class="imgPago" src="{% static 'core/images/paypal.png' %}" alt="">
+                </li>
+                <li class="lista">
+                    <img class="imgPago" src="{% static 'core/images/redcompra.png' %}" alt="">
+                </li>
+                <li class="lista">
+                    <img class="imgPago" src="{% static 'core/images/tbank.png' %}" alt="">
+                </li>
+                <li class="lista">
+                    <img class="imgPago" src="{% static 'core/images/visa-mcard.png' %}" alt="">
+                </li>
+                <li class="lista">
+                    <img class="imgPago" src="{% static 'core/images/webpay.png' %}" alt="">
+                </li>
+            </ul>
+            <!--INICIO_FOOTER-->
+            <footer class="footer">
+                <div class="container-fluid text-left text-md-center">
+                    <div class="row">
+                        <div class="col-md-2 text-left">
+                            <b><h3 style="font-size: 20px;">Acceso rápido</h3></b>
+                            <b>
+                                <a class="nav-link" href="" style="text-align: left; color: white; font-size: 15px;">Steam</a>
+                                <a class="nav-link" href="" style="text-align: left; color: white; font-size: 15px;">PS4</a>
+                                <a class="nav-link" href="" style="text-align: left; color: white; font-size: 15px;">Contacto</a>
+                                <a class="nav-link" href="" style="text-align: left; color: white; font-size: 15px;">Suscríbete</a>  
+                            </b>
+                        </div>
+                        <div class="col-md-8 text-md-center text-white">
+                            <h3 style="color: antiquewhite; text-align: center;">Orgullosos colaboradores de</h3>
+                            <br>
+                            <div class="row">
+                                <div class="container-fluid" style="width: 100%; border: 2px;">
+                                    <ul class="ul">
+                                        <li>
+                                            <img class="imageCola" src="{% static 'core/images/valveSteam.png' %}" alt="">
+                                        </li>
+                                        <li>
+                                            <img class="imageCola" src="{% static 'core/images/playstation.png' %}" alt="">
+                                        </li>
+                                        <li>
+                                            <img class="imageCola" src="{% static 'core/images/sony.png' %}" alt=""> 
+                                        </li>
+                                    </ul>
+                                </div>
+                                <hr style="width:100%; border-color: white;">
                             </div>
                         </div>
-                        <ul class="actions">
-                            <li><input type="submit" value="Send" class="primary" /></li>
-                        </ul>
-                    </form>
-                </section>
-                <section class="col-md-2 text-left">
-                    <h2>Síguenos en</h2>
-                    <ul class="icons">
-                        <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-                        <li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-                        <li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-                        <li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
-                        <li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>													
-                    </ul>
-                </section>
-                <ul class="copyright">
-                    <li>&copy; Copyright © 2020 GameStore. Todos los derechos reservados. SA “Baltikapo's play”, DuocUc, San Joaquin.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-                </ul>
-            </div>
-        </footer>
-    </div>
-	<!-- Footer -->
-    <!-- Scripts -->
-	<script src="{% static 'core/assets/js/jquery.min.js' %}"></script>
-	<script src="{% static 'core/assets/js/browser.min.js' %}"></script>
-	<script src="{% static 'core/assets/js/breakpoints.min.js' %}"></script>
-	<script src="{% static 'core/assets/js/util.js' %}"></script>
-	<script src="{% static 'core/assets/js/main.js' %}"></script>
+                        <div class="col-md-2 text-left">
+                            <b><h3 style="font-size: 20px;">Síguenos en</h3></b>
+                            <br>
+                            <div class="row" style="text-align: center;">
+                                <ul>
+                                    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"
+                                            style="height: 10px; font-size: 30px; color: tomato;"></i></a>
+                                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"
+                                            style="height: 10px; width: 35px; font-size: 30px; color:purple;"></i></a>
+                                    <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"
+                                                style="height: 10px; font-size: 30px; color: peru;"></i></a>
+                                    <a href="https://www.reddit.com/" target="_blank"><i class="fab fa-reddit"
+                                                style="height: 10px; font-size: 30px; color:slateblue;"></i></a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <i><p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; margin-top: 10px; color: gray; text-align:center; font-size: 3mm;">
+                    Copyright © 2020 GameStore. Todos los derechos reservados. SA “Baltikapo's play”, DuocUc, San Joaquin.
+                </p></i>
+            </footer>
+        <!--INICIO_FOOTER-->
+        </body>
+        <!-- Scripts -->
+        <!-- Optional JavaScript -->
+        <script type="text/javascript">
+            function alerta() 
+            {
+                var mensaje;
+                var opcion = prompt("Introduzca su nombre porfavor:");
+    
+                if (opcion == null || opcion == "") 
+                {
+                mensaje = "Has cancelado o introducido el nombre vacío, porfavor escriba su nombre.";
+                }   
+                else 
+                {
+                mensaje = "Hola " + opcion + 
+                ", Bienvenido/a a nuestra pagina web en su primera spooky edition, esperamos que tu visita sea aterradora."
+
+                }
+                document.getElementById("text").innerHTML = mensaje;
+            }
+        </script>
+        <script src="{% static 'core/assets/js/clock.js' %}"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </html>
