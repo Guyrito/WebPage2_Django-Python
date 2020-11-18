@@ -48,7 +48,7 @@
                     </div>
                     <div class="mx-auto my-2 order-0 order-md-1 position-relative">
                         <a class="mx-auto" href="#">
-                            <img src="images/menuico_3.png" class="rounded-circle" style="height: 120px; width: 120px">
+                            <img src="{% static 'core/images/menuico_3.png' %}" class="rounded-circle" style="height: 120px; width: 120px">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                             <span class="navbar-toggler-icon"><img style="height: 1cm; width: 1cm;" src="https://www.iconsdb.com/icons/preview/orange/menu-4-xxl.png" alt=""></span>
@@ -100,6 +100,9 @@
             <!--Contenido-->
             {% block content %}{% endblock %}
             <!--Contenido-->
+            <!--ScriptOptional-->
+            {% block addScript %}{% endblock%}
+            <!--ScriptOptional-->
             <br>
             <ul class="list" style="text-align: center; background-color: white; margin-bottom: 0;">
                 <li class="lista">
