@@ -1,2 +1,202 @@
 {% extends 'core/base.html' %}
 {% block title %}Acerca de{% endblock %}
+{% load static %}
+
+<!--Template tags-->
+{% block pageTitle %}
+<br>
+<p style="text-align: center;"> <img class="img-fluid img-responsive" src="{% static 'core/images/sobre_nosotros.png' %}" style="width: 1400px; height: 80px;" alt="" > </p>
+{% endblock %}
+{% block content %}
+<style>
+    #info1 {display: none;}
+</style>
+<style>
+    #info2 {display: none;}
+</style>
+<style>
+    #info3 {display: none;}
+</style>
+<style>
+    #info4 {display: none;}
+</style>
+
+<main class="container">
+    <hr>
+    <div class="row mt-4 mb-4">
+        <div class="card-deck">
+            <!--Start_Card_1-->
+            <div class="card shadow-lg" style="background-color: #300564;">
+                <img class="card-img-top img-fluid" src="{% static 'core/images/portada5 1200x500.jpg' %}" alt="portada_3" style="height: 4cm;">
+                <div class="text-center">
+                    <img class="img-fluid rounded-circle imagen_central" src="{% static 'core/images/braulio_rico.png' %}" alt="Braulio_lindo" style="width: 7cm; height: 7cm;">
+                </div>
+                <div class="card-body">
+                    <h4 style="color: white;">Acerca de Braulio</h4>
+                    <h6 class="card-subtitle mb-2" style="color: grey;">Doctor en Back-end</h6>
+                    <p class="card-text" style="color: mediumslateblue;">Soy un tipo sencillo, me gusta ser responsable y puntual, pero me aguanto.
+                     <hr><span id="dots1" style="color: white;">...</span>
+                     <span id="info1" style="color:mediumslateblue"> 
+                        <b style="color: white;">Nombre Completo</b><br>
+                        Braulio Maximiliano Fernandez Gutierrez <br>
+                        <b style="color: white;">Edad</b><br>
+                        20 años <br>
+                        <b style="color: white;">Correo</b><br>
+                        brau.fernandez@alumnos.duoc.cl <br>
+                        <b style="color: white;">Hobbies</b><br>
+                        Salvar al mundo
+                     </span>    
+                    </p>  
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-info" id="myBtn1" onclick="myFunction(this)" style="background-color: peru; border-color: peru;">Ver más</button>
+                </div>
+            </div>
+            <!--END_Card_1-->
+            <!--Start_Card_2-->
+            <div class="card shadow-lg" style="background-color: #300564;">
+                <img class="card-img-top img-fluid" src="{% static 'core/images/portada6 1200x500.jpg' %}" alt="portada_1" style="height: 4cm;">
+                <div class="text-center">
+                    <img class="img-fluid rounded-circle imagen_central" src="{%static 'core/images/cristianrico.png' %}" alt="Cristian_gay" style="width: 7cm; height: 7cm;">>
+                </div>
+                <div class="card-body">
+                    <h4 style="color: white;">Acerca de Cristian</h4>
+                    <h6 class="card-subtitle text-muted mb-2" style="color: grey;">Doctor en Memes</h6>
+                    <p class="card-text" style="color: mediumslateblue;">No puedo salir de Bronce V.
+                     <hr><span id="dots2" style="color: white;">...</span>
+                     <span id="info2" style="color: mediumslateblue;"> 
+                        <b style="color: white;">Nombre Completo</b><br>
+                        Cristian Andrés Salazar Colil <br>
+                        <b style="color: white;">Edad</b><br>
+                        19 años <br>
+                        <b style="color: white;">Correo</b><br>
+                        crist.salazarc@alumnos.duoc.cl <br>
+                        <b style="color: white;">Hobbies</b><br>
+                        Buscar la cura para la depresión
+                     </span>    
+                    </p>  
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-info" id="myBtn2" onclick="myFunction(this)" style="background-color: peru; border-color: peru;">Ver más</button>
+                </div>
+            </div>
+            <!--END_Card_2-->
+            <!--Start_Card_3-->
+            <div class="card shadow-lg" style="background-color: #300564;">
+                <img class="card-img-top img-fluid" src="{% static 'core/images/portada7 1200x500.jpg' %}" alt="portada_2" style="height: 4cm;">
+                <div class="text-center">
+                    <img class="img-fluid rounded-circle imagen_central" src="{% static 'core/images/yoelpichu.jpg' %}" alt="yoadmin" style="width: 7cm; height: 7cm;">>
+                </div>
+                <div class="card-body">
+                    <h4 style="color: white;">Acerca de Diego</h4>
+                    <h6 class="card-subtitle text-muted mb-2" style="color: grey;">Doctor en Front-end</h6>
+                    <p class="card-text" style="color: mediumslateblue;">Ohana significa Kripi, y el Kripi nunca te abandona.
+                     <hr><span id="dots3" style="color: white;">...</span>
+                     <span id="info3" style="color: mediumslateblue;"> 
+                        <b style="color: white;">Nombre Completo</b><br>
+                        Diego Matias Ortega Vargas <br>
+                        <b style="color: white;">Edad</b><br>
+                        20 años <br>
+                        <b style="color: white;">Correo</b><br>
+                        dieg.ortegav@alumnos.duoc.cl <br>
+                        <b style="color: white;">Hobbies</b><br>
+                        Simpear monas chinas
+                     </span>    
+                    </p>  
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-info" id="myBtn3" onclick="myFunction(this)" style="background-color: peru; border-color: peru;">Ver más</button>
+                </div>
+            </div>
+            <!--END_Card_3-->
+            <!--Start_Card_4-->
+            <div class="card shadow-lg" style="background-color: #300564;">
+                <img class="card-img-top img-fluid" src="{% static 'core/images/portada8 1200x500.jpg' %}" style="height: 4cm;">
+                <div class="text-center">
+                    <img class="img-fluid rounded-circle imagen_central" src="{% static 'core/images/maevawapa.png' %}" alt="Mauwu" style="width: 7cm; height: 7cm;">>
+                </div>
+                <div class="card-body">
+                    <h4 style="color: white;">Acerca de Maeva</h4>
+                    <h6 class="card-subtitle text-muted mb-2" style="color: grey;">Doctora en salir en Pandemia</h6>
+                    <p class="card-text" style="color: mediumslateblue;">Mis padres me dieron la vida, pero la calle me hizo.
+                     <hr><span id="dots4" style="color: white;">...</span>
+                     <span id="info4" style="color: mediumslateblue;"> 
+                        <b style="color: white;">Nombre Completo</b><br>
+                        Maeva Francisca Martinez Rojas <br>
+                        <b style="color: white;">Edad</b><br>
+                        20 años <br>
+                        <b style="color: white;">Correo</b><br>
+                        maev.martinez@alumnos.duoc.cl <br>
+                        <b style="color: white;">Hobbies</b><br>
+                        Desafiar la Pandemia
+                     </span>    
+                    </p>  
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-info" id="myBtn4" onclick="myFunction(this)" style="background-color: peru; border-color: peru;">Ver más</button>
+                </div>
+            </div>
+            <!--END_Card_4-->
+        </div>
+    </div>
+    <hr>
+</main>
+{% endblock %}
+<!--Template tags-->
+{% block addScript %}
+<script>
+    function info(texto, boton)
+    {
+        if(document.getElementById("info").style.display=='block')
+        {
+            document.getElementById("info").style.display='none';
+            document.getElementById("btn_vermas").innerHTML='Ver más';
+        }
+        else
+        {
+            document.getElementById("info").style.display='block';
+            document.getElementById("btn_vermas").innerHTML='Ocultar';
+        }
+    }
+</script>
+<!--End_Scripts_1-->
+
+<!--Script_2-->
+<script>
+    function myFunction(comp) {
+      let id = comp.id;
+      let idMore;
+      let idDot;
+      console.log(id);
+      if (id === "myBtn1")
+      {idMore = "info1";
+      idDot = "dots1"}
+      else if (id === "myBtn2")
+      {idMore = "info2";
+      idDot = "dots2"}
+      else if (id === "myBtn3")
+      {idMore = "info3";
+      idDot = "dots3"}
+      else if (id === "myBtn4")
+      {idMore = "info4";
+      idDot = "dots4"}
+      else{
+          console.log("Quzia que apretaste xD");
+      }
+      var dots = document.getElementById(idDot);
+      var moreText = document.getElementById(idMore);
+      var btnText = document.getElementById(id)
+    
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Ver Más"; 
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Ocultar"; 
+        moreText.style.display = "inline";
+      }
+    }
+    </script>
+<!--Script_2-->
+{% endblock %}
