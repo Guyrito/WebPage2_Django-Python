@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+{% block title %}Ps4{% endblock %}
+
+{% block pageTitle %}
+{% endblock %}
+
+{% block content %}
+    {%for i in juegos%}
+    <div class="container">
+        <div class="row row-cols-2">
+          <div class="col-2">
+            <img src="{{ i.image.url }}" style="height: 10cm; width: 10cm;" alt="">
+          </div>
+        </div>
+    </div>
+    {%endfor%}            
+{% endblock %}
+

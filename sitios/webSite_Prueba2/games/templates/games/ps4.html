@@ -1,0 +1,83 @@
+{% extends 'core/base.html' %}
+{% block title %}Ps4{% endblock %}
+
+{% block pageTitle %}
+{% endblock %}
+
+{% block content %}
+<style>
+    #more {display: none;}
+</style>
+    <div class="container">
+        <div class="columns mt-4 mb-4">
+            <class class="card-deck">
+                {%for i in juegos%}
+                <div class="card bg-dark text-white">
+                    <img class="card-img-top" 
+                    src="{{ i.image.url }}" 
+                    alt="Imagen" 
+                    style="width: 100%"
+                    id="imageCardSteamPage">
+                    <div class="card-body" id="steam-steamCard">
+                        <h4 class="card-title">
+                            {{ i.title }}</h4>
+                        <p class="card-text">
+                            {{ i.short_description }}
+                            <span id="dots">...</span><span id="more">{{ i.long_description }}</span></p>
+                        <h6 style="color:peru ;">Antes <del>$ 25.990</del></h6>
+                        <h5 style="color: whitesmoke">Ahora $7.990</h5>                    
+                    </div>
+                    <div class="card-footer" id="steam-footercard">
+                        <button class="btn btn-info" onclick="myFunction(this)" id="myBtn" style="background-color: peru; border-color: peru;">Leer más</button>
+                        <a class="btn btn-secondary" href="#" style="background-color: slateblue ;">Agregar al carrito</a>
+                    </div>
+                </div>
+                {%endfor%}
+            </class>
+        </div>
+    </div>
+{% endblock %}
+{% block addScript %}
+<script>
+    function ReadMore(texto, boton)
+    {
+        if(document.getElementById("ReadMore").style.display=='block')
+        {
+            document.getElementById("ReadMore").style.display='none';
+            document.getElementById("btn_vermas").innerHTML='Ver más';
+        }
+        else
+        {
+            document.getElementById("ReadMore").style.display='block';
+            document.getElementById("btn_vermas").innerHTML='Ocultar';
+        }
+    }
+</script>
+<script>
+    function myFunction(comp) {
+      let id = comp.id;
+      let idMore;
+      let idDot;
+      console.log(id);
+      if (id === "myBtn")
+      {idMore = "more";
+      idDot = "dots"}
+      else{
+              console.log("Quzia que apretaste xD");
+          }
+          var dots = document.getElementById(idDot);
+          var moreText = document.getElementById(idMore);
+          var btnText = document.getElementById(id)
+        
+          if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Leer Más"; 
+            moreText.style.display = "none";
+          } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Leer Menos"; 
+            moreText.style.display = "inline";
+          }
+        }
+        </script>
+{% endblock %}
