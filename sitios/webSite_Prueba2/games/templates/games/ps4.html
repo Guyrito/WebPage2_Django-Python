@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'core/css/style_1.css' %}">
+
 <style>
     #more {display: none;}
 </style>
@@ -35,6 +38,33 @@
                 {%endfor%}
             </class>
         </div>
+    </div>
+    <div class="row justify-content-center text-secondary mt-4 mb-4">
+        {% if juegos.has_other_pages %}
+            <nav aria-label="Paginación Juegos">
+                <ul class="pagination">
+                    {% if juegos.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{juegos.previous_page_number}}">&laquo;</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><span class="page-link">&laquo;</a></li>
+                    {% endif %}
+
+                    {% for i in juegos.paginator.page_range %}
+                        {% if juegos.number == i %}
+                            <li class="page-item active"><span class="page-link">{{i}}<span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{i}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if juegos.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{juegos.next_page_number}}">&raquo;</a></li>
+                    {% else %}
+                    <li class="page-item disabled"><span class="page-link">&raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
     </div>
 {% endblock %}
 {% block addScript %}
