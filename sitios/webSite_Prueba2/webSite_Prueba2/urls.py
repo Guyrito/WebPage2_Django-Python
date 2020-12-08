@@ -16,12 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core import views
+from django.conf import settings 
+from games import views as gameViews
 
 urlpatterns = [
     path('',views.home, name='home'),
-    path('ps4/',views.ps4, name='ps4'),
-    path('steam/',views.steam, name='steam'),
+    path('ps4/',gameViews.ps4, name='ps4'),
+    path('steam/',gameViews.steam, name='steam'),
     path('contact/',views.contact, name='contact'),
     path('aboutUs/',views.aboutUs, name='aboutUs'),
     path('admin/',admin.site.urls),
 ]
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

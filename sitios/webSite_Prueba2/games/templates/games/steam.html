@@ -5,14 +5,62 @@
 {% endblock %}
 
 {% block content %}
-    {%for i in juegos%}
     <div class="container">
-        <div class="row row-cols-2">
-          <div class="col-2">
-            <img src="{{ i.image.url }}" style="height: 10cm; width: 10cm;" alt="">
-          </div>
+        <div class="columns mt-4 mb-4">
+            <class class="card-deck">
+                {%for i in juegos%}
+                <div class="card bg-dark text-white">
+                    <img class="card-img-top" 
+                    src="{{ i.image.url }}" 
+                    alt="Imagen" 
+                    style="width: 100%"
+                    id="imageCardSteamPage">
+                    <div class="card-body" id="steam-steamCard">
+                        <h4 class="card-title">
+                            {{ i.title }}</h4>
+                        <p class="card-text">
+                            {{ i.short_description }}
+                            <span id="dots">...</span><span id="more">{{ i.long_description }}</span></p>
+                        <h6 style="color:peru ;">Antes <del>$ 25.990</del></h6>
+                        <h5 style="color: whitesmoke">Ahora $7.990</h5>                    
+                    </div>
+                    <div class="card-footer" id="steam-footercard">
+                        <a class="btn btn-secondary" href="#" style="background-color: peru ;">Agregar al carrito</a>
+                    </div>
+                </div>
+                {%endfor%}
+            </class>
         </div>
     </div>
-    {%endfor%}            
-{% endblock %}
+    [
+    <div class="row justify-content-center text-secondary mt-4 mb-4">
+        {% if juegos.has_other_pages %}
+            <nav aria-label="Paginación Proyectos">
+                <ul class="pagination">
+                    {% if juegos.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{juegos.previous_page_number}}">&laquo;</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><span class="page-link">&laquo;</a></li>
+                    {% endif %}
 
+                    {% for i in juegos.paginator.page_range %}
+                        {% if juegos.number == i %}
+                            <li class="page-item active"><span class="page-link">{{i}}<span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{i}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if juegos.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{juegos.next_page_number}}">&raquo;</a></li>
+                    {% else %}
+                    <li class="page-item disabled"><span class="page-link">&raquo;</a></li>
+                    {% endif %}      
+                </ul>
+            </nav>
+        {% endif %}
+    </div>
+    ]   
+{% endblock %}
+{% block addScript %}
+{% endblock %}

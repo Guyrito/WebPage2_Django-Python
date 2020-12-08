@@ -5,9 +5,6 @@
 {% endblock %}
 
 {% block content %}
-<style>
-    #more {display: none;}
-</style>
     <div class="container">
         <div class="columns mt-4 mb-4">
             <class class="card-deck">
@@ -24,60 +21,46 @@
                         <p class="card-text">
                             {{ i.short_description }}
                             <span id="dots">...</span><span id="more">{{ i.long_description }}</span></p>
-                        <h6 style="color:peru ;">Antes <del>$ 25.990</del></h6>
-                        <h5 style="color: whitesmoke">Ahora $7.990</h5>                    
+                        <h6 style="color:peru ;">Antes <del>$ {{ i.precio }}</del></h6>
+                        <h5 style="color: whitesmoke">Ahora $ {{ i.precio_oferta}}</h5>                    
                     </div>
                     <div class="card-footer" id="steam-footercard">
-                        <button class="btn btn-info" onclick="myFunction(this)" id="myBtn" style="background-color: peru; border-color: peru;">Leer más</button>
-                        <a class="btn btn-secondary" href="#" style="background-color: slateblue ;">Agregar al carrito</a>
+                        <a class="btn btn-secondary" href="#" style="background-color: peru ;">Agregar al carrito</a>
                     </div>
                 </div>
                 {%endfor%}
             </class>
         </div>
     </div>
+    [
+    <div class="row justify-content-center text-secondary mt-4 mb-4">
+        {% if juegos.has_other_pages %}
+            <nav aria-label="Paginación Proyectos">
+                <ul class="pagination">
+                    {% if juegos.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{juegos.previous_page_number}}">&laquo;</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><span class="page-link">&laquo;</a></li>
+                    {% endif %}
+
+                    {% for i in juegos.paginator.page_range %}
+                        {% if juegos.number == i %}
+                            <li class="page-item active"><span class="page-link">{{i}}<span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{i}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if juegos.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{juegos.next_page_number}}">&raquo;</a></li>
+                    {% else %}
+                    <li class="page-item disabled"><span class="page-link">&raquo;</a></li>
+                    {% endif %}      
+                </ul>
+            </nav>
+        {% endif %}
+    </div>
+    ]   
 {% endblock %}
 {% block addScript %}
-<script>
-    function ReadMore(texto, boton)
-    {
-        if(document.getElementById("ReadMore").style.display=='block')
-        {
-            document.getElementById("ReadMore").style.display='none';
-            document.getElementById("btn_vermas").innerHTML='Ver más';
-        }
-        else
-        {
-            document.getElementById("ReadMore").style.display='block';
-            document.getElementById("btn_vermas").innerHTML='Ocultar';
-        }
-    }
-</script>
-<script>
-    function myFunction(comp) {
-      let id = comp.id;
-      let idMore;
-      let idDot;
-      console.log(id);
-      if (id === "myBtn")
-      {idMore = "more";
-      idDot = "dots"}
-      else{
-              console.log("Quzia que apretaste xD");
-          }
-          var dots = document.getElementById(idDot);
-          var moreText = document.getElementById(idMore);
-          var btnText = document.getElementById(id)
-        
-          if (dots.style.display === "none") {
-            dots.style.display = "inline";
-            btnText.innerHTML = "Leer Más"; 
-            moreText.style.display = "none";
-          } else {
-            dots.style.display = "none";
-            btnText.innerHTML = "Leer Menos"; 
-            moreText.style.display = "inline";
-          }
-        }
-        </script>
 {% endblock %}
