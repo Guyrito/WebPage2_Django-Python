@@ -7,9 +7,9 @@
         <meta name="keywords" content="html, style">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
         <!-- CSS FontAwesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -17,11 +17,10 @@
 
         <!-- CSS Propios -->
         {% load static %}
-        <link rel="stylesheet" href="{% static '/core/css/style.css' %}">
-        
+        <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
 
-        
         <title>{% block title %}Base{% endblock %} | GameStore</title>
+
     </head>
         <body style="background-color: black;">
             <!--Portada-->
@@ -162,13 +161,13 @@
                             <br>
                             <div class="row" style="text-align: center;">
                                 <ul>
-                                    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"
+                                    <a href="{{LINK_FACEBOOK}}" target="_blank"><i class="fab fa-facebook-square"
                                             style="height: 10px; font-size: 30px; color: tomato;"></i></a>
-                                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"
+                                    <a href="{{LINK_INSTAGRAM}}" target="_blank"><i class="fab fa-instagram"
                                             style="height: 10px; width: 35px; font-size: 30px; color:purple;"></i></a>
-                                    <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"
+                                    <a href="{{LINK_TWITTER}}" target="_blank"><i class="fab fa-twitter"
                                                 style="height: 10px; font-size: 30px; color: peru;"></i></a>
-                                    <a href="https://www.reddit.com/" target="_blank"><i class="fab fa-reddit"
+                                    <a href="{{LINK_REDDIT}}" target="_blank"><i class="fab fa-reddit"
                                                 style="height: 10px; font-size: 30px; color:slateblue;"></i></a>
                                 </ul>
                             </div>
