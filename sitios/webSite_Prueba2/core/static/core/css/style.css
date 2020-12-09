@@ -248,7 +248,7 @@ form .error
     padding: 0.5rem 0.75rem;
     margin-left: -1px;
     line-height: 1.25;
-    color: orange;
+    color: darkorange;
     background-color: black;
     border: 1px solid #ddd;
   }
