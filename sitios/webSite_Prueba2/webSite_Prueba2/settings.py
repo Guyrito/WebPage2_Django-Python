@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'core',
     'contact',
     'ckeditor',
+    'pages.apps.PagesConfig',
     'social.apps.SocialConfig',
     'games.apps.GamesConfig',
 ]
@@ -127,6 +128,13 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 #media files (subir la img al proyect) en el settings 
+
+CKEDITOR_CONFIGS = {
+    'default':{
+        'toolbar': 'full',
+    }
+}
+
 EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = '6d13bdda076cde'
 EMAIL_HOST_PASSWORD = 'ccbcf8f9c78649'

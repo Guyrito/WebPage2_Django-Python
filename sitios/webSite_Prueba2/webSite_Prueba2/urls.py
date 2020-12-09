@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from core import views
 from django.conf import settings 
 from games import views as gameViews
@@ -24,6 +24,7 @@ urlpatterns = [
     path('',views.home, name='home'),
     path('ps4/',gameViews.ps4, name='ps4'),
     path('steam/',gameViews.steam, name='steam'),
+    path('page/',include('pages.urls')),
     path('contact/',contactViews.contact, name='contact'),
     path('aboutUs/',views.aboutUs, name='aboutUs'),
     path('admin/',admin.site.urls),
